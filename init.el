@@ -114,7 +114,7 @@
   (require 'init-spelling))
 
 (require 'init-misc)
-
+(require 'org-pomodoro)
 (require 'init-folding)
 (require 'init-dash)
 (require 'init-ledger)
@@ -136,6 +136,41 @@
   (server-start))
 
 
+;;;;================================================= < for ycmd start >
+
+;;;; To use ycmd-mode in all supported modes
+;;(require 'ycmd)
+;;(add-hook 'after-init-hook #'global-ycmd-mode)
+
+;;;; Specify only support c/c++ mode
+;;(require 'ycmd)
+;;(add-hook 'c++-mode-hook 'company-mode)
+;;(add-hook 'c++-mode-hook 'ycmd-mode)
+
+;;;; Specify how to run the server
+;;(set-variable 'ycmd-server-command '("/usr/bin/python" "/home/liubinxu/soft/ycmd/ycmd"))
+;;(set-variable 'ycmd-server-command '("/usr/bin/python" "~/ycmd/ycmd")) ;; Cannot use ~, should use abspath
+
+;;;; Specify a global emacs configuration
+;;(set-variable 'ycmd-global-config "/home/liubinxu/soft/ycmd/examples/.ycm_extra_conf.py")
+;;(set-variable 'ycmd-global-config "~/ycmd/examples/.ycm_extra_conf.py") ;; Cannot use ~, should use abspath
+
+;;;; Completion framework
+;;(require 'company-ycmd)
+;;(company-ycmd-setup)
+;;(add-hook 'after-init-hook #'global-company-mode)  
+
+;;;; Enable flycheck
+;;(require 'flycheck-ycmd)
+;;(flycheck-ycmd-setup)
+;;(add-hook 'after-init-hook #'global-flycheck-mode)  
+
+;;;; Set always complete immediately
+
+(setq company-idle-delay 0.8)
+
+
+
 ;;----------------------------------------------------------------------------
 ;; Variables configured via the interactive 'customize' interface
 ;;----------------------------------------------------------------------------
@@ -147,6 +182,22 @@
 ;; Allow users to provide an optional "init-local" containing personal settings
 ;;----------------------------------------------------------------------------
 (require 'init-local nil t)
+
+;;----------------------------------------------------------------------------
+;; Configuration of Python IDE  
+;; https://github.com/jorgenschaefer/elpy  
+;;----------------------------------------------------------------------------
+(require 'elpy nil t)  
+(elpy-enable)  
+
+(setq elpy-rpc-python-command "python2.7")  ;; python2.7
+(elpy-use-ipython)
+
+(global-linum-mode t)
+
+(require 'neotree)
+(global-set-key [f8] 'neotree-toggle)
+
 
 
 ;;----------------------------------------------------------------------------

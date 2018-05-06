@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: file_read
+# key: file
+# group : file
+# --
+infile = ${1:filename}
+with open(infile, '${2:rb}') as f:
+    ${3:# f.readline()}
+    for line in f.readlines():
+        $0

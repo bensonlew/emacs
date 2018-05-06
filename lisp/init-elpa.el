@@ -26,8 +26,8 @@
 
 ;; We include the org repository for completeness, but don't normally
 ;; use it.
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-
+(add-to-list 'package-archives '("org" . "http://elpa.emacs-china.org/org/"))
+(add-to-list 'package-archives '("marmalade" . "http://elpa.emacs-china.org/marmalade/"))
 
 (defconst sanityinc/no-ssl (and (memq system-type '(windows-nt ms-dos))
                                 (not (gnutls-available-p))))
@@ -35,16 +35,15 @@
 ;;; Also use Melpa for most packages
 (add-to-list 'package-archives
              `("melpa" . ,(if sanityinc/no-ssl
-                              "http://melpa.org/packages/"
-                            "https://melpa.org/packages/")))
+                              "http://elpa.emacs-china.org/melpa/"
+                            "http://elpa.emacs-china.org/melpa/")))
 
 (unless sanityinc/no-ssl
   ;; Force SSL for GNU ELPA
-  (setcdr (assoc "gnu" package-archives) "https://elpa.gnu.org/packages/"))
+  (setcdr (assoc "gnu" package-archives) "http://elpa.emacs-china.org/gnu/"))
 
 ;; NOTE: In case of MELPA problems, the official mirror URL is
 ;; https://www.mirrorservice.org/sites/stable.melpa.org/packages/
-
 
 
 

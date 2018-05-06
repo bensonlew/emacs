@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: file_write
+# key: file
+# group : file
+# --
+outfile = ${1:filename}
+with open(outfile, 'w') as f:
+    $0

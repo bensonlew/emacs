@@ -1,0 +1,11 @@
+# -*- mode: snippet -*-
+# name: file_read_write
+# key: file
+# group : file
+# --
+infile = ${1:filename}
+outfile = ${2:filename}
+with open(infile, 'rb') as f1, open(outfile, 'rb') as f2:
+    ${3:# f1.readline()}
+    for line in f1.readlines():
+        ${4:f2.write($0)}
